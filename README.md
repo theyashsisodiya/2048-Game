@@ -1,39 +1,67 @@
-# 2048
-A small clone of [1024](https://play.google.com/store/apps/details?id=com.veewo.a1024), based on [Saming's 2048](http://saming.fr/p/2048/) (also a clone).
+The README.md file has been updated with the Dockerfile placed after the "Getting Started" section. Here's the improved version:
 
-Made just for fun. [Play it here!](http://gabrielecirulli.github.io/2048/)
+---
 
-The official app can also be found on the [Play Store](https://play.google.com/store/apps/details?id=com.gabrielecirulli.app2048) and [App Store!](https://itunes.apple.com/us/app/2048-by-gabriele-cirulli/id868076805)
+# 2048 Game Dockerized
 
-### Contributions
+This repository contains the Dockerized version of the 2048 Game.
 
-[Anna Harren](https://github.com/iirelu/) and [sigod](https://github.com/sigod) are maintainers for this repository.
+## Getting Started
 
-Other notable contributors:
+To get started with this project, follow these steps:
 
- - [TimPetricola](https://github.com/TimPetricola) added best score storage
- - [chrisprice](https://github.com/chrisprice) added custom code for swipe handling on mobile
- - [marcingajda](https://github.com/marcingajda) made swipes work on Windows Phone
- - [mgarciaisaia](https://github.com/mgarciaisaia) added support for Android 2.3
+1. Clone this repository:
+   ```bash
+   git clone <repository_url>
+   ```
 
-Many thanks to [rayhaanj](https://github.com/rayhaanj), [Mechazawa](https://github.com/Mechazawa), [grant](https://github.com/grant), [remram44](https://github.com/remram44) and [ghoullier](https://github.com/ghoullier) for the many other good contributions.
+2. Navigate to the cloned directory:
+   ```bash
+   cd 2048-Game
+   ```
 
-### Screenshot
+3. **Dockerfile**
 
-<p align="center">
-  <img src="https://cloud.githubusercontent.com/assets/1175750/8614312/280e5dc2-26f1-11e5-9f1f-5891c3ca8b26.png" alt="Screenshot"/>
-</p>
+```Dockerfile
+# Use the official Nginx image as the base image
+FROM nginx:latest
 
-That screenshot is fake, by the way. I never reached 2048 :smile:
+# Set the working directory inside the container
+WORKDIR /usr/share/nginx/html
 
-## Contributing
-Changes and improvements are more than welcome! Feel free to fork and open a pull request. Please make your changes in a specific branch and request to pull into `master`! If you can, please make sure the game fully works before sending the PR, as that will help speed up the process.
+# Copy all files from the current directory to the working directory inside the container
+COPY . .
 
-You can find the same information in the [contributing guide.](https://github.com/gabrielecirulli/2048/blob/master/CONTRIBUTING.md)
+# Expose port 80 to allow access to the Nginx web server
+EXPOSE 80
+```
+ 
 
-## License
-2048 is licensed under the [MIT license.](https://github.com/gabrielecirulli/2048/blob/master/LICENSE.txt)
+4. Build the Docker image:
+   ```bash
+   sudo docker build -t game-2048 .
+   ```
 
-## Donations
-I made this in my spare time, and it's hosted on GitHub (which means I don't have any hosting costs), but if you enjoyed the game and feel like buying me coffee, you can donate at my BTC address: `1Ec6onfsQmoP9kkL3zkpB6c5sA4PVcXU2i`. Thank you very much!
-# 2048-Game
+5. Run a Docker container using the built image:
+   ```bash
+   sudo docker run -d -p 8080:80 game-2048
+   ```
+
+6. Access the game in your web browser using the following link:
+   [http://65.2.11.33:8080/](http://65.2.11.33:8080/)
+
+
+
+## Additional Information
+
+- The Dockerfile in this repository is configured to set up an Nginx server to serve the 2048 game.
+- Port 8080 on your local machine is mapped to port 80 inside the Docker container to access the game.
+- You can customize the game or server configuration by modifying the files in this repository and rebuilding the Docker image.
+
+Enjoy playing 2048!
+
+---
+
+Replace `<repository_url>` with the URL of your Git repository.
+
+This README.md provides users with clear instructions on how to clone the repository, build the Docker image, run the Docker container, and access the game. It also includes the Dockerfile used in the project for reference.
