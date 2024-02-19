@@ -48,7 +48,6 @@ EXPOSE 80
    ```
 
 6. Access the game in your web browser using the following link:
-   [http://65.2.11.33:8080/](http://65.2.11.33:8080/)
 
 
 
