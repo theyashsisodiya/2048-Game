@@ -1,4 +1,3 @@
-Your README.md looks good, but here are a few suggestions to make it even clearer and more informative:
 
 ---
 
