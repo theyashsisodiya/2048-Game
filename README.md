@@ -22,29 +22,21 @@ To get started with this project, follow these steps:
 
 3. **Dockerfile**
 
-```Dockerfile
-# Use the official Nginx image as the base image
-FROM nginx:latest
+# Use a base image that includes Nginx web server
+FROM nginx:alpine
 
 # Set the working directory inside the container
 WORKDIR /usr/share/nginx/html
 
-# Copy all files from the current directory to the working directory inside the container
+# Copy all game files from the current directory to the working directory inside the container
 COPY . .
 
-# Expose port 80 to allow access to the Nginx web server
+# Expose port 80 to allow access to the web server
 EXPOSE 80
-```
- 
 
-4. Build the Docker image:
-   ```bash
-   sudo docker build -t game-2048 .
-   ```
-
-5. Run a Docker container using the built image:
-   ```bash
-   sudo docker run -d -p 8080:80 game-2048
+# Start the Nginx web server
+CMD ["nginx", "-g", "daemon off;"]
+er run -d -p 8080:80 game-2048
    ```
 
 6. Access the game in your web browser using the following link:
