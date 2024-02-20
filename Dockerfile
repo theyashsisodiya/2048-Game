@@ -2,7 +2,7 @@
 FROM nginx:latest
 
 # Set the working directory inside the container
-WORKDIR /index
+WORKDIR /game/index
 
 # Copy all files from the current directory to the working directory inside the container
 COPY . .
