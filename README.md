@@ -1,4 +1,3 @@
-
 ---
 
 # 2048 Game Dockerized
@@ -26,11 +25,11 @@ To start playing the 2048 Game, follow these steps:
 
 4. **Run the Docker Container:**
    ```bash
-   docker run -d -p 8080:80 2048-game
+   docker run -d -p 8000:80 2048-game
    ```
 
 5. **Access the Game:**
-   Open your web browser and go to [http://localhost:8080](http://localhost:8080) to start playing the game.
+   Open your web browser and go to [http://localhost:8000](http://localhost:8000) to start playing the game.
 
 ## Dockerfile
 
@@ -53,11 +52,9 @@ EXPOSE 8000
 CMD ["nginx", "-g", "daemon off;"]
 ```
 
+## Jenkins Configuration Script
 
-
-##jenkins Configration code 
-
-```Jenkins
+```bash
 #!/bin/bash
 
 # Path
@@ -81,7 +78,7 @@ sudo docker run -d -p 8000:80 --name 2048-game-container 2048-game
 ## Additional Information
 
 - The Dockerfile sets up an Nginx server to serve the 2048 game.
-- Port 8080 on your local machine is mapped to port 80 inside the Docker container for accessing the game.
+- Port 8000 on your local machine is mapped to port 80 inside the Docker container for accessing the game.
 - You can customize the game or server configuration by modifying the files in this repository and rebuilding the Docker image.
 
 Enjoy playing 2048!
@@ -89,4 +86,3 @@ Enjoy playing 2048!
 ---
 
 Replace `<repository_url>` with the URL of your Git repository.
-
