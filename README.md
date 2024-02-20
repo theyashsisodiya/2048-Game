@@ -1,27 +1,43 @@
-The README.md file has been updated with the Dockerfile placed after the "Getting Started" section. Here's the improved version:
+Your README.md looks good, but here are a few suggestions to make it even clearer and more informative:
 
 ---
 
 # 2048 Game Dockerized
 
-This repository contains the Dockerized version of the 2048 Game.
+This repository contains a Dockerized version of the popular 2048 Game.
 
 ## Getting Started
 
-To get started with this project, follow these steps:
+To start playing the 2048 Game, follow these steps:
 
-1. Clone this repository:
+1. **Clone the Repository:**
    ```bash
    git clone <repository_url>
    ```
 
-2. Navigate to the cloned directory:
+2. **Navigate to the Directory:**
    ```bash
    cd 2048-Game
    ```
 
-3. **Dockerfile**
+3. **Build the Docker Image:**
+   ```bash
+   docker build -t 2048-game .
+   ```
 
+4. **Run the Docker Container:**
+   ```bash
+   docker run -d -p 8080:80 2048-game
+   ```
+
+5. **Access the Game:**
+   Open your web browser and go to [http://localhost:8080](http://localhost:8080) to start playing the game.
+
+## Dockerfile
+
+Here's the Dockerfile used to build the Docker image:
+
+```Dockerfile
 # Use a base image that includes Nginx web server
 FROM nginx:alpine
 
@@ -31,22 +47,17 @@ WORKDIR /usr/share/nginx/html
 # Copy all game files from the current directory to the working directory inside the container
 COPY . .
 
-# Expose port 80 to allow access to the web server
-EXPOSE 80
+# Expose port 8000 to allow access to the web server
+EXPOSE 8000
 
 # Start the Nginx web server
 CMD ["nginx", "-g", "daemon off;"]
-er run -d -p 8080:80 game-2048
-   ```
-
-6. Access the game in your web browser using the following link:
-
-
+```
 
 ## Additional Information
 
-- The Dockerfile in this repository is configured to set up an Nginx server to serve the 2048 game.
-- Port 8080 on your local machine is mapped to port 80 inside the Docker container to access the game.
+- The Dockerfile sets up an Nginx server to serve the 2048 game.
+- Port 8080 on your local machine is mapped to port 80 inside the Docker container for accessing the game.
 - You can customize the game or server configuration by modifying the files in this repository and rebuilding the Docker image.
 
 Enjoy playing 2048!
@@ -55,4 +66,3 @@ Enjoy playing 2048!
 
 Replace `<repository_url>` with the URL of your Git repository.
 
-This README.md provides users with clear instructions on how to clone the repository, build the Docker image, run the Docker container, and access the game. It also includes the Dockerfile used in the project for reference.
