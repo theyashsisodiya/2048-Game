@@ -1,5 +1,4 @@
 ---
-
 # 2048 Game Dockerized
 
 This repository contains a Dockerized version of the popular 2048 Game.
