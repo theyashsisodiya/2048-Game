@@ -53,6 +53,27 @@ EXPOSE 8000
 CMD ["nginx", "-g", "daemon off;"]
 ```
 
+```Jenkins
+#!/bin/bash
+
+# Path
+echo "Current working directory:"
+pwd
+
+# Stop and remove the old container if it exists
+echo "Stopping and removing old container..."
+sudo docker stop 2048-game-container
+sudo docker rm 2048-game-container
+
+# Build the Docker image
+echo "Building Docker image..."
+sudo docker build -t 2048-game .
+
+# Run the Docker container
+echo "Starting the new container..."
+sudo docker run -d -p 8000:80 --name 2048-game-container 2048-game
+```
+
 ## Additional Information
 
 - The Dockerfile sets up an Nginx server to serve the 2048 game.
