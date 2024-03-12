@@ -28,7 +28,7 @@ To start playing the 2048 Game, follow these steps:
    ```
 
 5. **Access the Game:**
-   Open your web browser and go to [http://localhost:8000](http://localhost:8000) to start playing the game.
+   Open your web browser and go to [http://localhost:8888](http://localhost:8888) to start playing the game.
 
 ## Dockerfile
 
@@ -71,7 +71,7 @@ sudo docker build -t 2048-game .
 
 # Run the Docker container
 echo "Starting the new container..."
-sudo docker run -d -p 8000:80 --name 2048-game-container 2048-game
+sudo docker run -d -p 8888:80 --name 2048-game-container 2048-game
 ```
 
 ## Additional Information
