@@ -8,4 +8,4 @@ WORKDIR /game/index
 COPY . .
 
 # Expose port 80 to allow access to the Nginx web server
-EXPOSE 8000
+EXPOSE 8888
