@@ -8,14 +8,7 @@ WORKDIR /usr/src/app
 COPY . .
 
 # Create a custom Nginx configuration file to serve the project files
-RUN echo 'server {\
-        listen 8888;\
-        root /usr/src/app;\
-        index index.html;\
-        location / {\
-            try_files $uri $uri/ =404;\
-        }\
-    }' > /etc/nginx/conf.d/custom.conf
+COPY nginx.conf /etc/nginx/conf.d/custom.conf
 
 # Remove the default Nginx configuration if it exists
 RUN rm -f /etc/nginx/conf.d/default.conf
