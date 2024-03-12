@@ -1,20 +1,14 @@
-# Use a base image that includes Nginx web server
-FROM nginx:alpine
+# Use a lightweight base image
+FROM python:3.9-slim
 
 # Set the working directory inside the container
-WORKDIR /usr/share/nginx/html
+WORKDIR /usr/src/app
 
-# Copy all game files from the current directory to the working directory inside the container
+# Copy all project files to the working directory inside the container
 COPY . .
 
-# Remove default Nginx configuration
-RUN rm /etc/nginx/conf.d/default.conf
-
-# Copy custom Nginx configuration to serve the application files
-COPY nginx.conf /etc/nginx/conf.d/
-
-# Expose port 8888 to allow access to the web server
+# Expose port 8888 to allow access to the HTTP server
 EXPOSE 8888
 
-# Start the Nginx web server
-CMD ["nginx", "-g", "daemon off;"]
+# Command to start the HTTP server serving your project files
+CMD ["python", "-m", "http.server", "8888"]
