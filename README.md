@@ -84,4 +84,4 @@ Enjoy playing 2048!
 
 ---
 
-Replace `<repository_url>` with the URL of your Git repository.
+Replace `<repository_url>` with the URL of your Git repository..
