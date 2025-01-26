@@ -74,6 +74,11 @@ echo "Starting the new container..."
 sudo docker run -d -p 8888:80 --name 2048-game-container 2048-game
 ```
 
+## Deployed link on AWS Ec2
+```
+http://13.232.132.74:8888/
+```
+
 ## Additional Information
 
 - The Dockerfile sets up an Nginx server to serve the 2048 game.
