@@ -77,7 +77,7 @@ sudo docker run -d -p 8888:80 --name 2048-game-container 2048-game
 ## Additional Information
 
 - The Dockerfile sets up an Nginx server to serve the 2048 game.
-- Port 8000 on your local machine is mapped to port 80 inside the Docker container for accessing the game..
+- Port 8000 on your local machine is mapped to port 80 inside the Docker container for accessing the game.
 - You can customize the game or server configuration by modifying the files in this repository and rebuilding the Docker image.
 
 Enjoy playing 2048!
